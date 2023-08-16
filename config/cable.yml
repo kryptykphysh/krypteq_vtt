@@ -1,0 +1,11 @@
+development: &default
+  adapter: redis
+  url: <%= ENV.fetch("REDIS_CABLE_URL", "redis://localhost:6379/1") %>
+  channel_prefix: krypteq_vtt_development
+
+test:
+  adapter: test
+
+production:
+  <<: *default
+  channel_prefix: krypteq_vtt_production
