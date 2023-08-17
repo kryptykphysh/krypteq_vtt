@@ -1,0 +1,12 @@
+<section id="flash-messages" class="section my-2">
+  <% if flash.any? %>
+    <% flash.each do |type, msg| %>
+      <div
+          class="notification mt-2 <%= type == "alert" ? "is-danger" : "is-info" %>"
+          data-contoller="dismissable">
+          <button class="delete" data-action="click->dismissable#dismiss"></button>
+        <%= msg %>
+      </div>
+    <% end %>
+  <% end %>
+</section>

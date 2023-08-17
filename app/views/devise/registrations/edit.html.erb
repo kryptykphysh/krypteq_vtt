@@ -1,0 +1,78 @@
+<section id="edit-profile-form" class="columns is-centered section">
+  <div class="column is-one-third">
+    <h1 class="title is-1">Edit <%= resource_name.to_s.humanize %></h1>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%= f.label :email, class: "label" %>
+        <div class="control">
+          <%= f.email_field :email,
+            autofocus: true,
+            autocomplete: "email",
+            class: "input" %>
+        </div>
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+      <div class="field">
+        <%= f.label :password, class: "label" %> <i>(leave blank if you don't want to change it)</i>
+        <div class="control">
+          <%= f.password_field :password,
+            autocomplete: "new-password",
+            class: "input" %>
+        </div>
+        <% if @minimum_password_length %>
+          <em><%= @minimum_password_length %> characters minimum</em>
+        <% end %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation, class: "label" %>
+        <div class="control">
+          <%= f.password_field :password_confirmation,
+            autocomplete: "new-password",
+            class: "input" %>
+        </div>
+      </div>
+
+      <div class="field">
+        <%= f.label :current_password, class: "label" %> <i>(we need your current password to confirm your changes)</i>
+        <div class="control">
+          <%= f.password_field :current_password,
+            autocomplete: "current-password",
+            class: "input" %>
+        </div>
+      </div>
+
+      <div class="level mt-2">
+        <div class="level-left">
+          <div class="control level-item">
+            <%= f.submit "Update", class: "button is-primary" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <h3 class="is-size-3">Cancel my account</h3>
+
+    <div class="level">
+      <div class="level-left">
+        <p class="level-item">Unhappy?</p>
+        <%= button_to "Cancel my account",
+          registration_path(resource_name),
+          data: {
+            confirm: "Are you sure?",
+            turbo_confirm: "Are you sure?"
+          },
+          method: :delete,
+          class: "button is-danger level-item" %>
+      </div>
+    </div>
+
+    <%= link_to "Back", :back, class: "button is-link" %>
+  </div>
+</section>
