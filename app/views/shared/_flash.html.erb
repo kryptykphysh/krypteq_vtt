@@ -1,12 +1,14 @@
-<section id="flash-messages" class="section my-2">
+<section id="flash-messages" class="section">
   <% if flash.any? %>
-    <% flash.each do |type, msg| %>
-      <div
-          class="animate__animated animate__bounceInRight notification mt-2 <%= type == "alert" ? "is-danger" : "is-info" %>"
-          data-controller="dismissable">
-        <button class="delete" data-action="click->dismissable#dismiss"></button>
-        <%= msg %>
-      </div>
-    <% end %>
+    <div class="columns is-centered mt-2">
+      <% flash.each do |type, msg| %>
+        <div
+            class="animate__animated animate__bounceInRight column is-one-third notification mt-2 <%= type == "alert" ? "is-danger" : "is-info" %>"
+            data-controller="dismissable">
+          <button class="delete" data-action="click->dismissable#dismiss"></button>
+          <%= msg %>
+        </div>
+      <% end %>
+    </div>
   <% end %>
 </section>
