@@ -1,0 +1,18 @@
+<section id="scenes-index-page" class="columns is-centered section">
+  <div class="column is-one-third">
+    <div class="level">
+      <div class="level-left">
+        <h1 class="level-item title">Scenes</h1>
+      </div>
+      <div class="level-right">
+        <%= link_to "New scene", new_scene_path, class: "level-item button is-primary" %>
+      </div>
+    </div>
+    <div id="scenes-list" class="buttons is-centered">
+      <% @scenes.each do |scene| %>
+        <%= link_to scene.title.titleize, scene, class: "button" %>
+      <% end %>
+    </div>
+    <%= turbo_frame_tag "load_more", src: scenes_path(page: @next_page, format: :turbo_stream), loading: :lazy %>
+  </div>
+</section>

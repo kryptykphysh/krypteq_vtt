@@ -7,7 +7,6 @@ export default class extends Controller {
   }
 
   dismiss() {
-    console.log("dismiss called");
     this.element.classList.add("animate__fadeOutUp");
     this.element.addEventListener("animationend", () => {
       this.element.remove();

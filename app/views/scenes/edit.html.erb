@@ -1,0 +1,10 @@
+<section id="edit-scene-page" class="columns is-centered section">
+  <div class="column is-one-third">
+    <h1 class="title">Editing Scene <%= @scene.title.titleize %></h1>
+    <%= render "form", scene: @scene %>
+    <div class="buttons mt-2">
+      <%= link_to "Show this scene", @scene, class: "button" %>
+      <%= link_to "Back to scenes", scenes_path, class: "button" %>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,14 @@
+<section id="show-scene-page" class="columns is-centered section">
+  <div class="column is-one-third">
+    <%= render @scene %>
+  </div>
+  <div class="buttons">
+    <%= link_to "Edit this scene", edit_scene_path(@scene), class: "button is-primary" %>
+    <%= link_to "Back to scenes", scenes_path, class: "button" %>
+
+    <%= link_to "Destroy this scene",
+      @scene,
+      data: {"turbo-method": :delete},
+      class: "button is-danger" %>
+  </div>
+</section>
