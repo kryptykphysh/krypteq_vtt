@@ -1,14 +1,26 @@
-<section id="show-scene-page" class="columns is-centered section">
-  <div class="column is-one-third">
-    <%= render @scene %>
-  </div>
-  <div class="buttons">
-    <%= link_to "Edit this scene", edit_scene_path(@scene), class: "button is-primary" %>
-    <%= link_to "Back to scenes", scenes_path, class: "button" %>
+<section id="show-scene-page">
+  <div class="columns is-centered section">
+    <div class="column is-one-third">
+      <%= render @scene %>
+    </div>
+    <div class="buttons">
+      <%= link_to "Edit this scene", edit_scene_path(@scene), class: "button is-primary" %>
+      <%= link_to "Back to scenes", scenes_path, class: "button" %>
 
-    <%= link_to "Destroy this scene",
-      @scene,
-      data: {"turbo-method": :delete},
-      class: "button is-danger" %>
+      <%= link_to "Destroy this scene",
+        @scene,
+        data: {"turbo-method": :delete},
+        class: "button is-danger" %>
+    </div>
+  </div>
+
+  <div id="whiteboard-canvas"
+       class="container is-fluid"
+       data-controller="whiteboard">
+    <p>Womble</p>
+    <canvas id="scene-whiteboard"
+            class="box"
+            data-whiteboard-target="canvas">
+    </canvas>
   </div>
 </section>
