@@ -13,5 +13,13 @@
  *= require_tree .
  *= require_self
  */
-@import "bulma";
+@import "bulma/bulma";
 @import "animate";
+
+.canvas-container {
+  width: 100% !important;
+}
+
+.bulma-center-mixin {
+  @include center(100%);
+}

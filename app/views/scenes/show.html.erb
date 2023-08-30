@@ -1,4 +1,4 @@
-<section id="show-scene-page">
+<section id="show-scene-page" data-scene-id="<%= @scene.id %>">
   <div class="columns is-centered section">
     <div class="column is-one-third">
       <%= render @scene %>
@@ -15,12 +15,12 @@
   </div>
 
   <div id="whiteboard-canvas"
-       class="container is-fluid"
+       class="bulma-center-mixin-parent container"
        data-controller="whiteboard">
-    <p>Womble</p>
     <canvas id="scene-whiteboard"
-            class="box"
-            data-whiteboard-target="canvas">
+            class="bulma-center-mixin"
+            data-whiteboard-target="canvas"
+            style="border:1px solid;">
     </canvas>
   </div>
 </section>
